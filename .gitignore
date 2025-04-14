@@ -5,6 +5,5 @@ template.tex
 .quarto/
 
 /.quarto/
-*.png
-*.pdf
+
 
