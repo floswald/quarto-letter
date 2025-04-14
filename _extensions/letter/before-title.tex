@@ -1,5 +1,5 @@
 % Fonts
-\usepackage{bera,fontawesome}
+\usepackage{bera,fontawesome,lmodern}
 \usepackage[charter]{mathdesign}
 \usepackage[lf,t]{FiraSans}
 \usepackage[scale=0.9]{sourcecodepro}
@@ -10,39 +10,85 @@
 \setlength{\TPVertModule}{1cm}
 
 \makeatletter
-\def\ps@monash{%
-\begin{textblock}{4}(2,1)
-\includegraphics[height=1.5cm]{monash2}
-\end{textblock}%
-\begin{textblock}{4}(17,1)
-\includegraphics[height=1.5cm]{MBSportrait}
-\end{textblock}%
-\begin{textblock}{10}(1.2,26.4)
-{\fontsize{9}{8}\selectfont\sffamily\color[gray]{0.4}%
+\def\ps@floletter{%
+\begin{textblock}{4}(3,2)
+  \includegraphics[height=3cm]{unito.png}
+\end{textblock}
+\begin{textblock}{4}(15,2)
+  \includegraphics[height=3cm]{cca.png}
+\end{textblock}
+\begin{textblock}{4}(6,2.2)
+  \begingroup
+    \setstretch{1.25}
+  \fontsize{11}{10}
+  {\fontfamily{lmtt}\selectfont\color[gray]{0.4}  \color[gray]{0.4}
+  \begin{tabular}{@{}l@{}}
+    Florian Oswald \\[0.2cm]
+    
+    Associate Professor of Economics \\
+    Collegio Carlo Alberto \\
+    Department of Economics (ESOMAS), Uni Turin \\
+    RES Data Editor (EJ and EctJ)\\
+    \faicon{home} \url{https://floswald.github.io}
+  
+   
+  \end{tabular}
+  }
+  \endgroup
+\end{textblock}
+
+\begin{textblock}{4}(14,6.5)
+  \raggedleft
+  Turin, \@date
+  \end{textblock}
+
+
+
+\begin{textblock}{10}(3,26.5)
+{\fontsize{9}{8}\fontfamily{lmtt}\selectfont\color[gray]{0.4}%
 \begin{tabular}{@{}l@{}}
 \textbf{$for(authors)$$it.name.literal$$endfor$}, $if(qualifications)$$qualifications$$endif$\\
 $if(position)$$position$\\$endif$
-Department of Econometrics \& Business Statistics\\
-Monash University, Victoria 3800, Australia.\\[0.15cm]
-$if(email)$\faicon{envelope} $email$\quad$endif$
-$if(phone)$\faicon{phone} $phone$\quad$endif$
-$if(www)$\faicon{home} $www$$endif$\\[0.1cm]
-ABN: 12 377 614 012\quad CRICOS Provider Number: 00008C
+Collegio Carlo Alberto\\
+
 \end{tabular}}
+
 \end{textblock}%
-\begin{textblock}{7}(12.7,28.2)\hfill
-\includegraphics[height=0.6cm]{AACSB}~~~
-\includegraphics[height=0.6cm]{EQUIS}~~~
-\includegraphics[height=0.6cm]{AMBA}
+\begin{textblock}{7}(12.7,26.5)
+  {\fontsize{9}{8}\fontfamily{lmtt}\selectfont\color[gray]{0.4}%
+\begin{tabular}{@{}l@{}}
+  Department of Economics (ESOMAS)\\
+  University of Turin, Italy\\
+  $if(www)$\faicon{home} $www$$endif$\\
+  $if(email)$\faicon{envelope} $email$\quad$endif$
+\end{tabular}}
 \end{textblock}
-\def\thepage{}}
+\def\thepage{}
+}
+
+
 
 \@ifundefined{opening}{}{%
-\renewcommand*{\opening}[1]{\thispagestyle{monash}%
-  \enlargethispage*{-2cm}
-   \vspace*{1.2cm}{\@date\par}%
-  \vspace{2\parskip}%
+\renewcommand*{\opening}[1]{\pagestyle{floletter}%
+
+  % \enlargethispage*{-2cm}
+  % \vspace{2\parskip}%
+
+  \vspace*{4cm}%
+
+  $if(toname)$
   {\raggedright \toname \\ \toaddress \par}%
   \vspace{2\parskip}%
-  #1\par\nobreak}}
+  $endif$
+
+  $if(subject)$
+  \textbf{RE: $subject$}
+  \newline
+  \vspace{0.5cm}
+  $endif$
+
+  #1,\par\nobreak}
+  }
+
+
 \makeatother

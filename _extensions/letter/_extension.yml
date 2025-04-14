@@ -1,6 +1,6 @@
-title: Monash Letter
-author: Rob J Hyndman
-version: 2.0.0
+title: Flos Letter
+author: Florian Oswald
+version: 0.0.1
 quarto-required: ">=1.4.0"
 contributes:
   formats:
@@ -10,20 +10,17 @@ contributes:
       date: today
       date-format: "D MMMM YYYY"
       papersize: a4
-      fontsize: 11pt
+      fontsize: 12pt
       geometry:
-        - "top=2cm"
-        - "bottom=2cm"
-        - "left=2cm"
-        - "right=2cm"
+        - "top=2.5cm"
+        - "bottom=3.5cm"
+        - "left=3cm"
+        - "right=3cm"
       colorlinks: true
       template-partials:
         - "before-body.tex"
         - "after-body.tex"
         - "before-title.tex"
       format-resources:
-        - monash2.png
-        - MBSportrait.jpg
-        - EQUIS.png
-        - AMBA.png
-        - AACSB.png
+        - unito.png
+        - cca.png
